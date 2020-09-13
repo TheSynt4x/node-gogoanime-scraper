@@ -33,7 +33,7 @@ npm install node-gogoanime-scraper
 
 ```js
 
-const Anime = require('node-gogoanime-scraper').Anime
+const Anime = require('node-gogoanime-scraper')
 
 const response = await Anime.fetchRelatedAnime('Sword Art Online II');
 
@@ -46,7 +46,7 @@ const response = await Anime.fetchRelatedAnime('Sword Art Online II', 1);
 
 ```js
 
-const Anime = require('node-gogoanime-scraper').Anime
+const Anime = require('node-gogoanime-scraper')
 
 // Optionally, you can also provide a parameter for the page 
 const response = await Anime.fetchPopularAnimes();
@@ -57,7 +57,7 @@ const response = await Anime.fetchPopularAnimes();
 
 ```js
 
-const Anime = require('node-gogoanime-scraper').Anime
+const Anime = require('node-gogoanime-scraper')
 
 const response = await Anime.fetchRecentlyAddedSeries();
 
@@ -67,7 +67,7 @@ const response = await Anime.fetchRecentlyAddedSeries();
 
 ```js
 
-const Anime = require('node-gogoanime-scraper').Anime
+const Anime = require('node-gogoanime-scraper')
 
 const response = await Anime.fetchOngoingSeries();
 
@@ -77,7 +77,7 @@ const response = await Anime.fetchOngoingSeries();
 
 ```js
 
-const Anime = require('node-gogoanime-scraper').Anime
+const Anime = require('node-gogoanime-scraper')
 
 // Optionally, you can also provide a parameter for the page 
 const response = await Anime.fetchMovies();
@@ -88,7 +88,7 @@ const response = await Anime.fetchMovies();
 
 ```js
 
-const Anime = require('node-gogoanime-scraper').Anime
+const Anime = require('node-gogoanime-scraper')
 
 // The available values for season are Summer, Spring, Winter, and Autumn
 // Only animes starting from year 2014 is available.
@@ -105,7 +105,7 @@ const response = await Anime.fetchAnimeBySeason('Winter', 2020, 1);
 
 ```js
 
-const Anime = require('node-gogoanime-scraper').Anime
+const Anime = require('node-gogoanime-scraper')
 
 const response = await Anime.fetchGenres('Adventure');
 
@@ -115,7 +115,7 @@ const response = await Anime.fetchGenres('Adventure');
 
 ```js
 
-const Anime = require('node-gogoanime-scraper').Anime
+const Anime = require('node-gogoanime-scraper')
 
 // To know the list of genres available, you may use the fetchGenres()
 // Optionally, you can also provide a 2nd parameter for the page 
