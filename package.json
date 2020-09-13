@@ -1,0 +1,36 @@
+{
+  "name": "node-gogoanime-scraper",
+  "version": "1.0.0",
+  "description": "Easy and simple to use tool for getting anime and movie information from gogoanime.",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node ./src/index.js",
+    "lint": "eslint . --ext=js --fix",
+    "format": "prettier --write \"**/*.+(js)\" --list-different || (echo '↑↑ These files are not prettier formatted ↑↑' && exit 1)",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SkylarXs/node-gogoanime-scraper.git"
+  },
+  "author": "SkylarXs",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SkylarXs/node-gogoanime-scraper/issues"
+  },
+  "homepage": "https://github.com/SkylarXs/node-gogoanime-scraper#readme",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.3",
+    "cloudscraper": "^4.6.0",
+    "request": "^2.88.2"
+  },
+  "devDependencies": {
+    "eslint": "^7.9.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jsdoc": "^30.4.2",
+    "eslint-plugin-prettier": "^3.1.4",
+    "prettier": "^2.1.1"
+  }
+}
