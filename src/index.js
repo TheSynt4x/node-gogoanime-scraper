@@ -98,6 +98,4 @@ class Anime {
   }
 }
 
-module.exports = {
-  Anime,
-};
+module.exports = new Anime();

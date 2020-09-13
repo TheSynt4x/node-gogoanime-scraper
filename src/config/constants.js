@@ -1,6 +1,6 @@
 const BASE_URL = 'https://gogoanime.so/';
 
-exports.URL = Object.freeze({
+const URL = Object.freeze({
   GET_ANIME: `${BASE_URL}/category`,
   GET_ANIME_BY_GENRE: `${BASE_URL}/genre`,
   ANIME_SEASON: `${BASE_URL}/sub-category`,
@@ -9,8 +9,16 @@ exports.URL = Object.freeze({
   SEARCH_ANIME: `${BASE_URL}/search.html`,
 });
 
-exports.SEASONS = ['spring', 'winter', 'summer', 'fall'];
+const SEASONS = ['spring', 'winter', 'summer', 'fall'];
 
-exports.MINIMUM_YEAR = 2014;
+const MINIMUM_YEAR = 2014;
 
-exports.MAXIMUM_YEAR = new Date().getFullYear();
+const MAXIMUM_YEAR = new Date().getFullYear();
+
+module.exports = {
+  URL,
+  BASE_URL,
+  SEASONS,
+  MINIMUM_YEAR,
+  MAXIMUM_YEAR,
+};
