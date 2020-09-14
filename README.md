@@ -3,7 +3,7 @@ GogoAnime Scraper
 
 This tool scrapes information from gogoanime.so to get animes and movies information.
 
-It is an easy and simple to use tool for getting information such as `Genres`, `Popular Animes`, `Recently Added Series`, `Anime Information`, `Movie Information`, and `Ongoing Series` from gogoanime.so.
+It is an easy and simple to use tool for getting information such as `Genres`, `Popular Animes`, `Recently Added Series`, `Anime Information`, `Movie Information`, `Ongoing Series` and `Recently Updated Series` from gogoanime.so.
 
 ## Installation
 ```
@@ -107,7 +107,7 @@ const response = await Anime.fetchAnimeBySeason('Winter', 2020, 1);
 
 const Anime = require('node-gogoanime-scraper')
 
-const response = await Anime.fetchGenres('Adventure');
+const response = await Anime.fetchGenres();
 
 ```
 
@@ -120,6 +120,17 @@ const Anime = require('node-gogoanime-scraper')
 // To know the list of genres available, you may use the fetchGenres()
 // Optionally, you can also provide a 2nd parameter for the page 
 const response = await Anime.fetchAnimeByGenre('Adventure');
+
+```
+
+#### Retrieved the recently updated anime
+
+```js
+
+const Anime = require('node-gogoanime-scraper')
+
+// Optionally, you can also provide a 2nd parameter for the page 
+const response = await Anime.fetchRecentlyUpdated();
 
 ```
 

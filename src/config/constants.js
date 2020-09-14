@@ -1,4 +1,4 @@
-const BASE_URL = 'https://gogoanime.so/';
+const BASE_URL = 'https://gogoanime.so';
 
 const URL = Object.freeze({
   GET_ANIME: `${BASE_URL}/category`,
@@ -7,6 +7,7 @@ const URL = Object.freeze({
   POPULAR_ANIME: `${BASE_URL}/popular.html`,
   GET_MOVIES: `${BASE_URL}/anime-movies.html`,
   SEARCH_ANIME: `${BASE_URL}/search.html`,
+  RECENT_RELEASE: `${BASE_URL}`,
 });
 
 const SEASONS = ['spring', 'winter', 'summer', 'fall'];

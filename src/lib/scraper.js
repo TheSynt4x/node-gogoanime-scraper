@@ -25,7 +25,10 @@ const getAnimeList = async (url, page) => {
       const slug = $el
         .find('p.name a')
         .attr('href')
-        .replace('/category/', '');
+        .replace('/category/', '')
+        .replace(/-episode-[0-9]+/, '')
+        .slice(1);
+
       promises.push(getAnime(slug));
     },
   );
@@ -130,4 +133,8 @@ exports.getGenres = async () => {
     items: await Promise.all(promises),
     total: promises.length,
   };
+};
+
+exports.getRecentlyUpdated = async (page = 1) => {
+  return getAnimeList(URL.RECENT_RELEASE, page);
 };

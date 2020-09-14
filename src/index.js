@@ -11,6 +11,7 @@ const {
   getOngoingSeries,
   getPopularAnimes,
   getRecentlyAddedSeries,
+  getRecentlyUpdated,
   searchAnime,
 } = require('./lib/scraper');
 
@@ -18,6 +19,14 @@ class Anime {
   async fetchGenres() {
     try {
       return await getGenres();
+    } catch (err) {
+      throw new Error(err);
+    }
+  }
+
+  async fetchRecentlyUpdated(page = 1) {
+    try {
+      return await getRecentlyUpdated(page);
     } catch (err) {
       throw new Error(err);
     }
