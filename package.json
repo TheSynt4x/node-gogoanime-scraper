@@ -40,6 +40,5 @@
     "scraper",
     "scraping",
     "anime movie"
-  ],
-  "publishConfig": { "registry": "https://npm.pkg.github.com/" }
+  ]
 }
