@@ -25,9 +25,7 @@ const getAnimeList = async (url, page) => {
       const slug = $el
         .find('p.name a')
         .attr('href')
-        .replace('/category/', '')
-        .replace(/-episode-[0-9]+/, '')
-        .slice(1);
+        .replace('/category/', '');
 
       promises.push(getAnime(slug));
     },
@@ -136,5 +134,26 @@ exports.getGenres = async () => {
 };
 
 exports.getRecentlyUpdated = async (page = 1) => {
-  return getAnimeList(URL.RECENT_RELEASE, page);
+  const body = await cloudscraper.get(URL.RECENT_RELEASE);
+  const $ = cheerio.load(body);
+  const promises = [];
+
+  $('div.main_body div.last_episodes ul.items li').each(
+    (_, element) => {
+      const $el = $(element);
+      const slug = $el
+        .find('p.name a')
+        .attr('href')
+        .replace(/-episode-[0-9]+/g, '')
+        .slice(1);
+      promises.push(getAnime(slug));
+    },
+  );
+
+  return {
+    items: await Promise.all(promises),
+    pages: {
+      current: page,
+    },
+  };
 };
