@@ -7,7 +7,6 @@ const { parseAnime } = require('./parser');
 const getAnime = async (slug) => {
   const body = await cloudscraper.get(`${URL.GET_ANIME}/${slug}`);
   const $ = cheerio.load(body);
-
   return {
     ...parseAnime($),
     slug,
@@ -103,11 +102,15 @@ exports.getOngoingSeries = async () => {
     .find('nav.menu_series ul li')
     .each((_, element) => {
       const $el = $(element);
-      const slug = $el
-        .find('a')
+      const animeDetails = $el.find('a');
+      const slug = animeDetails
         .attr('href')
         .replace('/category/', '');
-      promises.push(getAnime(slug));
+      const title = animeDetails.attr('title');
+      promises.push({
+        title,
+        slug,
+      });
     });
 
   return {

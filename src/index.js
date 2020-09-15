@@ -35,8 +35,7 @@ class Anime {
   async fetchAnimeByGenre(genre, page = 1) {
     try {
       const genres = await this.fetchGenres();
-
-      if (genres.findIndex(genre) === -1) {
+      if (genres.items.indexOf(genre) === -1) {
         throw new Error('Genre is not supported.');
       }
 
@@ -48,7 +47,7 @@ class Anime {
 
   async fetchAnimeBySeason(season, year, page = 1) {
     try {
-      if (SEASONS.findIndex(season.toLowerCase()) === -1) {
+      if (SEASONS.indexOf(season.toLowerCase()) === -1) {
         throw new Error(
           'Please enter a correct value for the season.',
         );
