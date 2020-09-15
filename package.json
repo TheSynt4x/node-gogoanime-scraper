@@ -1,6 +1,6 @@
 {
   "name": "node-gogoanime-scraper",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "Easy and simple to use tool for getting anime and movie information from gogoanime.",
   "main": "src/index.js",
   "scripts": {
