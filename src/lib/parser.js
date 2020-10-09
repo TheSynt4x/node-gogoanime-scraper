@@ -44,3 +44,7 @@ exports.parseAnime = ($) => {
     episodes: parseInt(episodes, 10),
   };
 };
+
+exports.parseChooseServer = (el) => {
+  return el.text().trim().replace('Choose this server', '');
+}

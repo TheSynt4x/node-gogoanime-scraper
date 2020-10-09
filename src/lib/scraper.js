@@ -2,7 +2,7 @@ const cloudscraper = require('cloudscraper');
 const cheerio = require('cheerio');
 const { BASE_URL, URL } = require('../config/constants');
 
-const { parseAnime } = require('./parser');
+const { parseAnime, parseChooseServer } = require('./parser');
 
 const getAnime = async (slug) => {
   const body = await cloudscraper.get(`${URL.GET_ANIME}/${slug}`);
@@ -159,4 +159,25 @@ exports.getRecentlyUpdated = async (page = 1) => {
       current: page,
     },
   };
+};
+
+exports.getAnime = async (slug) => {
+  return getAnime(slug);
+}
+
+exports.getEpisode = async (slug, episode = 1) => {
+  const body = await cloudscraper.get(`${BASE_URL}/${slug}-episode-${episode}`);
+  const $ = cheerio.load(body);
+  const promises = [];
+
+  $('.anime_muti_link > ul > li > a').each((_, element) => {
+    const $el = $(element);
+    const source = $el.attr('data-video');
+    promises.push({ server: parseChooseServer($el), source });
+  });
+
+  return {
+    items: await Promise.all(promises),
+    total: promises.length,
+  }
 };

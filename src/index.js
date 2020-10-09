@@ -13,6 +13,8 @@ const {
   getRecentlyAddedSeries,
   getRecentlyUpdated,
   searchAnime,
+  getAnime,
+  getEpisode
 } = require('./lib/scraper');
 
 class Anime {
@@ -100,6 +102,22 @@ class Anime {
   async fetchRelatedAnime(keyword, page = 1) {
     try {
       return await searchAnime(keyword, page);
+    } catch (err) {
+      throw new Error(err);
+    }
+  }
+
+  async getAnime(slug) {
+    try {
+      return await getAnime(slug);
+    } catch (err) {
+      throw new Error(err);
+    }
+  }
+
+  async getEpisode(slug, episode = 1) {
+    try {
+      return await getEpisode(slug, episode);
     } catch (err) {
       throw new Error(err);
     }

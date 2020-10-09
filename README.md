@@ -134,8 +134,28 @@ const response = await Anime.fetchRecentlyUpdated();
 
 ```
 
+#### Retrieve all episodes for anime
+
+```js
+const Anime = require('node-gogoanime-scraper')
+
+const anime = await Anime.getAnime('aggressive-retsuko');
+const promises = [];
+
+for (let i = 1; i < anime.episodes; i += 1) {
+  const episode = Anime.getEpisode(anime.slug, i);
+  promises.push(episode);
+}
+
+const episodes = await Promise.all(promises);
+
+// do something with x
+const x = { ...anime, episodes };
+```
+
+An episode will contain all mirrors with source and server.
+
 ### Other information
 
-Please raised an issue or submit a PR if you find anything that requires fixing.
+Please raise an issue or submit a PR if you find anything that requires fixing.
 
-Getting the video episode links will be the future work of this tool.
